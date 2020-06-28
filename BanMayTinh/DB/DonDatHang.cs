@@ -17,23 +17,21 @@ namespace BanMayTinh.DB
 
         public int Id { get; set; }
 
-        [Required]
         [StringLength(25)]
         public string UserNameKH { get; set; }
 
-        public long SoDienThoaiNguoiNhan { get; set; }
+        [StringLength(11)]
+        public string SoDienThoaiNguoiNhan { get; set; }
 
         [Column(TypeName = "date")]
-        public DateTime NgayDat { get; set; }
+        public DateTime? NgayDat { get; set; }
 
         [Column(TypeName = "date")]
-        public DateTime NgayGiao { get; set; }
+        public DateTime? NgayGiao { get; set; }
 
-        [Required]
         [StringLength(50)]
         public string TenNguoiNhan { get; set; }
 
-        [Required]
         public string DiaChi { get; set; }
 
         public string YeuCau { get; set; }

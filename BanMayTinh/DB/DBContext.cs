@@ -25,6 +25,14 @@ namespace BanMayTinh.DB
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<ChiTietDonDatHang>()
+                .Property(e => e.SoLuong)
+                .IsFixedLength();
+
+            modelBuilder.Entity<DonDatHang>()
+                .Property(e => e.SoDienThoaiNguoiNhan)
+                .IsFixedLength();
+
             modelBuilder.Entity<DonDatHang>()
                 .HasMany(e => e.ChiTietDonDatHangs)
                 .WithRequired(e => e.DonDatHang)
@@ -65,9 +73,8 @@ namespace BanMayTinh.DB
 
             modelBuilder.Entity<TaiKhoan>()
                 .HasMany(e => e.DonDatHangs)
-                .WithRequired(e => e.TaiKhoan)
-                .HasForeignKey(e => e.UserNameKH)
-                .WillCascadeOnDelete(false);
+                .WithOptional(e => e.TaiKhoan)
+                .HasForeignKey(e => e.UserNameKH);
 
             modelBuilder.Entity<TaiKhoan>()
                 .HasMany(e => e.GioHangs)

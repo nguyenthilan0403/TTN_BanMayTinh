@@ -19,7 +19,8 @@ namespace BanMayTinh.DB
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id_SanPhamMua { get; set; }
 
-        public int? SoLuong { get; set; }
+        [StringLength(10)]
+        public string SoLuong { get; set; }
 
         public double? DonGia { get; set; }
 
