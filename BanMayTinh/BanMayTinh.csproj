@@ -45,10 +45,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -121,6 +135,18 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="DB\AnhSanPham.cs" />
+    <Compile Include="DB\ChiTietDonDatHang.cs" />
+    <Compile Include="DB\ChiTietGioHang.cs" />
+    <Compile Include="DB\DBContext.cs" />
+    <Compile Include="DB\DonDatHang.cs" />
+    <Compile Include="DB\GioHang.cs" />
+    <Compile Include="DB\HangSanXuat.cs" />
+    <Compile Include="DB\LoaiSanPham.cs" />
+    <Compile Include="DB\SanPham.cs" />
+    <Compile Include="DB\sysdiagram.cs" />
+    <Compile Include="DB\TaiKhoan.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -135,6 +161,80 @@
     <Content Include="Content\css\form.css" />
     <Content Include="Content\css\megamenu.css" />
     <Content Include="Content\css\style.css" />
+    <Content Include="Content\images\AnhSanPham\120_28214_samsung_s24e360h__3_.png" />
+    <Content Include="Content\images\AnhSanPham\120_28214_samsung_s24e360h__4_.png" />
+    <Content Include="Content\images\AnhSanPham\120_32452_samsung_s22f350fh__2_.png" />
+    <Content Include="Content\images\AnhSanPham\120_32452_samsung_s22f350fh__3_.png" />
+    <Content Include="Content\images\AnhSanPham\120_32452_samsung_s22f350fh__4_.png" />
+    <Content Include="Content\images\AnhSanPham\120_37200_samsung_c49hg90dmn__1_.png" />
+    <Content Include="Content\images\AnhSanPham\120_37200_samsung_c49hg90dmn__4_.png" />
+    <Content Include="Content\images\AnhSanPham\120_50995_msi_mag_pylon_2.png" />
+    <Content Include="Content\images\AnhSanPham\120_51619_vo_case_cooler_master_masterbox_td500tg_mesh_argb_mid_tower_mau_den_led_argb_mat_luoi_5.png" />
+    <Content Include="Content\images\AnhSanPham\120_51619_vo_case_cooler_master_masterbox_td500tg_mesh_argb_mid_tower_mau_den_led_argb_mat_luoi_6.png" />
+    <Content Include="Content\images\AnhSanPham\120_52094_pc_gaming_shark_013.jpg" />
+    <Content Include="Content\images\AnhSanPham\37200_samsung_c49hg90dmn__3_.png" />
+    <Content Include="Content\images\AnhSanPham\48042_msi_trident_3.png" />
+    <Content Include="Content\images\AnhSanPham\48042_msi_trident_3_04.png" />
+    <Content Include="Content\images\AnhSanPham\50995_msi_mag_pylon_1.jpg" />
+    <Content Include="Content\images\AnhSanPham\50995_msi_mag_pylon_3.png" />
+    <Content Include="Content\images\AnhSanPham\52057_lenovo_t530_01.jpg" />
+    <Content Include="Content\images\AnhSanPham\52057_lenovo_t530_02.jpg" />
+    <Content Include="Content\images\AnhSanPham\52600_50153_47124_dell_poweredge_t140_021.png" />
+    <Content Include="Content\images\AnhSanPham\52604_47428_dell_poweredge_r240_021.png" />
+    <Content Include="Content\images\AnhSanPham\AMD-Athlon-1.jpg" />
+    <Content Include="Content\images\AnhSanPham\AMD-Ryzen-3.1.jpg" />
+    <Content Include="Content\images\AnhSanPham\AMD-Ryzen-5.1.jpg" />
+    <Content Include="Content\images\AnhSanPham\AMD-Ryzen-7.1.jpg" />
+    <Content Include="Content\images\AnhSanPham\AMD-Ryzen-9.1.jpg" />
+    <Content Include="Content\images\AnhSanPham\Card-màn-hình-MSI-Radeon-RX 5700-GAMING-X.1.jpg" />
+    <Content Include="Content\images\AnhSanPham\Card-màn-hình-MSI-Radeon-RX 5700-GAMING-X.jpg" />
+    <Content Include="Content\images\AnhSanPham\Card-màn-hình-MSI-RTX-2080-Ti-GAMING-X-TRIO.1.jpg" />
+    <Content Include="Content\images\AnhSanPham\Card-màn-hình-MSI-RTX-2080-Ti-GAMING-X-TRIO.jpg" />
+    <Content Include="Content\images\AnhSanPham\Dell_optiplex_3060_mt.png" />
+    <Content Include="Content\images\AnhSanPham\Gigabyte-DDR4-16GB.jpg" />
+    <Content Include="Content\images\AnhSanPham\Gigabyte-DDR4-8GB.jpg" />
+    <Content Include="Content\images\AnhSanPham\HDD-Toshiba-1TB.jpg" />
+    <Content Include="Content\images\AnhSanPham\HDD-Toshiba-2TB.jpg" />
+    <Content Include="Content\images\AnhSanPham\HDD-Toshiba-4TB.jpg" />
+    <Content Include="Content\images\AnhSanPham\HDD-Toshiba-500GB.jpg" />
+    <Content Include="Content\images\AnhSanPham\Intel-Core-i-3.1.jpg" />
+    <Content Include="Content\images\AnhSanPham\Intel-Core-i-3.2.jpg" />
+    <Content Include="Content\images\AnhSanPham\Intel-Core-i-3.3.jpg" />
+    <Content Include="Content\images\AnhSanPham\Intel-Core-i-3.4jpg.jpg" />
+    <Content Include="Content\images\AnhSanPham\Intel-Core-i-3.5.jpg" />
+    <Content Include="Content\images\AnhSanPham\Intel-Core-i-5.1.jpg" />
+    <Content Include="Content\images\AnhSanPham\Intel-Core-i-5.2.jpg" />
+    <Content Include="Content\images\AnhSanPham\Intel-Core-i-5.3.jpg" />
+    <Content Include="Content\images\AnhSanPham\Intel-Core-i-7.1.jpg" />
+    <Content Include="Content\images\AnhSanPham\Intel-Core-i-7.2.jpg" />
+    <Content Include="Content\images\AnhSanPham\Intel-Core-i-7.3.jpg" />
+    <Content Include="Content\images\AnhSanPham\Kingston-DDR3-Deskop1.jpg" />
+    <Content Include="Content\images\AnhSanPham\Kingston-DDR3-Deskop2.jpg" />
+    <Content Include="Content\images\AnhSanPham\Kingston-DDR4-16GB.jpg" />
+    <Content Include="Content\images\AnhSanPham\Kingston-DDR4-4GBjpg.jpg" />
+    <Content Include="Content\images\AnhSanPham\Kingston-DDR4-8GB.jpg" />
+    <Content Include="Content\images\AnhSanPham\Mainboard Gigabyte C246M-WU4.1.jpg" />
+    <Content Include="Content\images\AnhSanPham\Mainboard Gigabyte C246M-WU4.jpg" />
+    <Content Include="Content\images\AnhSanPham\Mainboard-GIGABYTE-Z390-Gaming-X.1.jpg" />
+    <Content Include="Content\images\AnhSanPham\Mainboard-GIGABYTE-Z390-Gaming-X.jpg" />
+    <Content Include="Content\images\AnhSanPham\Mainboard-MSI-H310M-PRO-VL.1.jpg" />
+    <Content Include="Content\images\AnhSanPham\Mainboard-MSI-H310M-PRO-VL.jpg" />
+    <Content Include="Content\images\AnhSanPham\Nguồn-Gigabyte-G750H-750W.jpg" />
+    <Content Include="Content\images\AnhSanPham\Nguồn-Gigabyte-GAGP-PB650-650W-Active-PFC.1.jpg" />
+    <Content Include="Content\images\AnhSanPham\Nguồn-Gigabyte-GAGP-PB650-650W-Active-PFC.jpg" />
+    <Content Include="Content\images\AnhSanPham\pc_lenovo.1.png" />
+    <Content Include="Content\images\AnhSanPham\pc_lenovo.png" />
+    <Content Include="Content\images\AnhSanPham\SSD-Samsung-PM883.jpg" />
+    <Content Include="Content\images\AnhSanPham\SSD-SamSunng-860-evo-1TB.jpg" />
+    <Content Include="Content\images\AnhSanPham\SSD-SamSunng-860-evo-250GB.jpg" />
+    <Content Include="Content\images\AnhSanPham\SSD-SamSunng-860-evo-500GB.jpg" />
+    <Content Include="Content\images\AnhSanPham\SSD-SamSunng-860-evo.jpg" />
+    <Content Include="Content\images\AnhSanPham\VGA-Card-LEADTEK-nVidia-Quadro-P1000-4GB-GDDR5.1.jpg" />
+    <Content Include="Content\images\AnhSanPham\VGA-Card-LEADTEK-nVidia-Quadro-P1000-4GB-GDDR5.jpg" />
+    <Content Include="Content\images\AnhSanPham\VGA-Card-LEADTEK-nVidia-Quadro-P2200-5GB-GDDR5x.1.jpg" />
+    <Content Include="Content\images\AnhSanPham\VGA-Card-LEADTEK-nVidia-Quadro-P2200-5GB-GDDR5x.jpg" />
+    <Content Include="Content\images\AnhSanPham\VGA-Card-LEADTEK-nVidia-Quadro-P400-2GB-GDDR5.1.jpg" />
+    <Content Include="Content\images\AnhSanPham\VGA-Card-LEADTEK-nVidia-Quadro-P400-2GB-GDDR5.jpg" />
     <Content Include="Content\images\arrow.png" />
     <Content Include="Content\images\arrow2.gif" />
     <Content Include="Content\images\arrows.png" />
@@ -203,6 +303,7 @@
     <Content Include="Content\js\jquery.wmuSlider.js" />
     <Content Include="Content\js\megamenu.js" />
     <Content Include="Content\js\move-top.js" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -239,19 +340,18 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\CheckOut.cshtml" />
     <Content Include="Views\Home\LogIn.cshtml" />
     <Content Include="Views\Home\Register.cshtml" />
-    <Content Include="Views\Home\Shop.cshtml" />
-    <Content Include="Views\Home\Single.cshtml" />
+    <Content Include="Views\Product\Detail.cshtml" />
+    <Content Include="Views\Product\Shop.cshtml" />
+    <Content Include="Views\Product\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\images\AnhSanPham\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

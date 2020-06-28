@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BanMayTinh.DB;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,7 @@ namespace BanMayTinh.Controllers
 {
     public class HomeController : Controller
     {
+        DBContext context = new DBContext();
         public ActionResult Index()
         {
             return View();
@@ -24,15 +26,6 @@ namespace BanMayTinh.Controllers
         }
 
         public ActionResult Register()
-        {
-            return View();
-        }
-
-        public ActionResult Shop()
-        {
-            return View();
-        }
-        public ActionResult Single()
         {
             return View();
         }
